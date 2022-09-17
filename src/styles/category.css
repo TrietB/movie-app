@@ -1,0 +1,41 @@
+.btn{
+    padding: 14px;
+    border-radius: 15px;
+    font-size: 14px;
+    border: solid black 1px;
+    background-color: white;
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+.btn:hover{
+    background-color: blue;
+    color: white;
+}
+
+.btn-active{
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+
+.section-category{
+    margin: 16px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* --------movieItem--------- */
+
+.wrapper{
+    text-decoration: none!important;
+}
+
+.release-date{
+    color: black;
+}
+
+.movie-title{
+    width: 200px;
+    height: 95px;
+}

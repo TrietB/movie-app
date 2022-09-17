@@ -1,0 +1,50 @@
+.movie-item{
+
+}
+.movie-poster{
+    width: 400px;
+    margin-right: 40px;
+}
+
+.movie-poster > img{
+    border-radius: 15px;
+}
+
+.wrapper{
+    text-decoration: none!important;
+}
+
+.wrapper:hover .movie-title, .wrapper.hover .movie-title{
+    color: #694df8
+}
+
+.movie-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 400px;
+    margin-bottom: 10px;
+}
+.movie-title{
+    font-size: 25px;
+    color: black;
+    margin-top: 12px;
+    margin-bottom: 16px;
+}
+.movie-date{
+    color: black;
+}
+.movie-detail{
+    color: black;
+}
+.movie-rating{
+    color: black;
+}
+.movie-length{
+    color: black;
+    margin-top: 25px;
+}
+
+.fa-icon{
+    color: orange
+}
