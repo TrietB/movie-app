@@ -6,6 +6,7 @@
     background-color: white;
     cursor: pointer;
     margin-bottom: 16px;
+    margin-right: 16px;
 }
 .btn:hover{
     background-color: blue;
@@ -23,6 +24,10 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+.category-btn{
+    margin-bottom: 24px;
 }
 
 /* --------movieItem--------- */

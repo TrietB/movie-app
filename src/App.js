@@ -4,6 +4,7 @@ import DiscoverMovies from './components/Discover/DiscoverMovies'
 
 import Header from './components/Header'
 import CategoryMovies from './components/MoviesCategories/CategoryMovies'
+import TrendingMovies from './components/Trending/TrendingMovies'
 
 function App() {
 
@@ -14,6 +15,7 @@ getDetailMovie()
     <Header/>
     <DiscoverMovies/>
     <CategoryMovies/>
+    <TrendingMovies/>
     </>
   )
 }

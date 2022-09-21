@@ -1,11 +1,21 @@
-import { Typography } from '@mui/material'
+import { CircularProgress, Typography } from '@mui/material'
 import { Box } from '@mui/system'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import DiscoverItem from './DiscoverItems'
 
 
 function DiscoverMovies() {
-  return (
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+      setTimeout(() => {
+        setLoading(false)
+      }, 2000);
+  }, [])
+  
+  return loading ? (<Box sx={{ display: 'flex' }}>
+  <CircularProgress />
+</Box>) : (
     <>
     <Box sx={{ml: 2, mt: 5}}>
       <Typography variant='h3' mb={3}>Discover</Typography>

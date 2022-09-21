@@ -41,7 +41,7 @@ function CategoryMovies() {
           View All
         </Link>
       </Box>
-      <div className="button-wrapper mb-4">
+      <div className='category-btn'>
         {categories.map((category) => (
           <button
             key={category.id}
@@ -56,10 +56,10 @@ function CategoryMovies() {
           </button>
         ))}
       </div>
-      <Grid container className="category-wrapper scroll-wrapper pb-5">
+      <Grid container className="category-wrapper">
         {movies.map((movie, index) => {
           return (
-            <Grid item key={index} xs={3} >
+            <Grid item key={index} xs={2.2} >
             <MovieItem
             key={movie.id}
             id={movie.id}

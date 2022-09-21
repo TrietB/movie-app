@@ -7,7 +7,6 @@ import '../../styles/category.css'
 function MovieItem(props) {
     const 
     { id, backdrop, title, rate, count,  genres = [], poster, release_date } = props;
-    console.log(backdrop)
       const rootImg = process.env.REACT_APP_PUBLIC_IMG;
       const year = new Date(release_date);
     
@@ -20,14 +19,14 @@ function MovieItem(props) {
           <div className="movie-item">
             <Link to={`/movie/${id}`} className="wrapper">
               <a>
-                <div className="movie-poster mb-3">
+                <div className="movie-poster ">
                   <img src={`${rootImg}/w200${poster}`} alt={`backdrop ${title}`} />
                 </div>
-                <div className="movie-info d-flex flex-row justify-content-between">
+                <div className="movie-info">
                   <div>
                     <h6 className="movie-title">{title}</h6>
                     <p className="movie-date">{`${year.toLocaleDateString('en', { day: 'numeric', month: 'long', year: 'numeric' })}`}</p>
-                    <div className="d-flex align-items-center">
+                    <div >
                     <FontAwesomeIcon icon={faStar} className="fa-icon"/>
                       <span className="release-date">{`${rate} (${count?.toLocaleString()})`}</span>
                     </div>

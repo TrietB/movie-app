@@ -24,7 +24,7 @@ export default function DiscoverItem(props) {
       setData(response);
     }, []);
   
-    useEffect(() => {
+    useEffect(() => { 
       getDiscoverMovieAPI(id);
     }, []);
   
@@ -32,12 +32,10 @@ export default function DiscoverItem(props) {
     const year = new Date(data.release_date).getFullYear();
     const categories = data.genres.map((genre) => genre.name).splice(0, 2).join(' | ');
   
-    return !data.id ? (
-      <div />
-    ) : (
+    return data.id && (
       <div className="movie-item">
         <Link className='wrapper' to={`/movie/${id}`}>
-            <div className="movie-poster mb-3">
+            <div className="movie-poster">
               <img src={`${rootImg}/w400/${data.backdrop_path}`} alt={`backdrop ${data.title}`} />
             </div>
             <div className="movie-info">
