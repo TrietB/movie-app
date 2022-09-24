@@ -7,7 +7,6 @@ const BASE_URL = process.env.REACT_APP_BASE_URL
 export async function getCategories() {
     const axiosResponse = await axios.get(`${BASE_URL}/genre/movie/list?${BASE_KEY}`);
     const { data } = axiosResponse;
-    console.log(data)
     return data;
   }
   

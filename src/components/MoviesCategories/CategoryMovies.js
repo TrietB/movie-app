@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { getCategories, getCategoryMovies } from '../../apiData/apiService';
 import MovieItem from './MovieItem';
@@ -11,17 +11,16 @@ function CategoryMovies() {
   const [id, setId] = useState(28);
   const [movies, setMovies] = useState([]);
 
- const getCategoriesAPI = useCallback( async ()=>{
+ const getCategoriesAPI = async ()=>{
   const response = await getCategories()
   const genres = response.genres.filter((genre) => genre.name !== 'Documentary' && genre.name !== 'Romance' && genre.name !== 'Drama')
   setCategories(genres)
- })
+ }
 
- const getCategoriesMoviesAPI = useCallback(async (idc)=>{
+ const getCategoriesMoviesAPI =async (idc)=>{
   const response = await getCategoryMovies(idc)
-  console.log(response.results)
   setMovies(response.results);
- })
+ }
 
  useEffect(() => {
     getCategoriesAPI()
@@ -35,7 +34,7 @@ function CategoryMovies() {
 
   return (
     <div className="section-category">
-      <Box sx={{display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center', width:'100%'}} className="mb-3 d-flex justify-content-between align-items-center">
+      <Box sx={{display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center', width:'100%'}}>
         <Typography variant='h3' mt={3} mb={3}>Browse by category</Typography>
         <Link to={`/movies/category?idc=${id}&cat=${active}&page=1`}>
           View All

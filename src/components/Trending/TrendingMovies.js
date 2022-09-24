@@ -11,7 +11,6 @@ function TrendingMovies() {
 
   const getTrendingMoviesAPI = useCallback(async (param) =>{
     const response = await getTrendingMovies(param)
-    console.log(response)
     setMovies(response.results)
   }, [])
 
