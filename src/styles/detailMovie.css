@@ -1,6 +1,6 @@
 .detail-movie {
-    min-height: 100vh;
-  }
+  min-height: 100vh;
+}
   
 .detail-movie .section-backdrop {
   position: relative;
@@ -83,5 +83,5 @@
 }
 
 .info-overview{
-  width: 1200px;
+  width: 100%
 }

@@ -27,9 +27,9 @@ export default function DetailInfo(props) {
         <div className="info-overview">
             <Box sx={{mt:3}}>
                 <Typography variant='h5'>Overview</Typography>
-                <p>{movie.overview}</p>
+                <Typography paragraph={true} sx={{mt: 3}}>{movie.overview}</Typography>
             </Box>
-            <Box sx={{mt:3}}>
+            <Box sx={{mt:3, width:'1000px'}}>
                 <Typography variant='h5'>Cast</Typography>
             <div className="cast-wrapper">
             {cast.map((person) => {
