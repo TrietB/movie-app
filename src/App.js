@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { getCategories, getCredits, getDetailMovie, getSimilarMovies, getVideoTrailer } from './apiData/apiService'
-import DiscoverMovies from './components/Discover/DiscoverMovies'
-
-import Header from './components/Header'
-import CategoryMovies from './components/MoviesCategories/CategoryMovies'
-import TrendingMovies from './components/Trending/TrendingMovies'
 import Layout from './layout/Layout'
 import DetailMovie from './pages/DetailMovie'
 import Homepage from './pages/Homepage'
+import CategoryViewAll from './pages/movie/CategoryViewAll'
 
 function App() {
   return (
@@ -17,6 +12,7 @@ function App() {
       <Route path='/' element={<Layout/>}>
         <Route index element={<Homepage/>}/>
         <Route path='/movie/:id' element={<DetailMovie/>}/>  
+        <Route path='/movies/category' element={<CategoryViewAll/>}/>
       </Route>
     </Routes>
     </>

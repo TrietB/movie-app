@@ -6,11 +6,11 @@ import '../../styles/category.css'
 
 function MovieItem(props) {
     const 
-    { id, title, rate, count,  genres = [], poster, release_date, type, backdrop } = props;
+    { id, backdrop, title, rate, count,  genres = [], poster, release_date } = props;
       const rootImg = process.env.REACT_APP_PUBLIC_IMG;
       const year = new Date(release_date);
-    
-      let categories = '';
+
+      let categories = ''
       if (genres.length > 0) {
         categories = genres.map((genre) => genre.name).splice(0, 2).join(' | ');
       }
@@ -19,14 +19,8 @@ function MovieItem(props) {
           <div className="movie-item">
             <Link to={`/movie/${id}`} className="wrapper">
               <a>
-                <div className="movie-poster">
-                  <img 
-                  src={type==='backdrop'? `${rootImg}/w200${backdrop}` : `${rootImg}/w200${poster}`}
-                   
-                  alt={`backdrop ${title}`} 
-                  
-                  />
-
+                <div className="movie-poster ">
+                  <img src={`${rootImg}/w200${poster}`} alt={`backdrop ${title}`} />
                 </div>
                 <div className="movie-info">
                   <div>
