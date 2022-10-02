@@ -1,6 +1,7 @@
-import { Button, Pagination } from '@mui/material';
+import { Button, Grid, Pagination, PaginationItem } from '@mui/material';
+import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import { getCategories, getCategoryMovies } from '../../apiData/apiService';
 import MovieItem from '../../components/MoviesCategories/MovieItem';
 
@@ -13,12 +14,11 @@ function CategoryViewAll() {
     const [movies, setMovies] = useState([]);
 
     let location = useLocation()
+    let query = new URLSearchParams(location.search)
+
     console.log(location)
 
-    const handleChange = () => {
-        setPageActive(pageActive + 1)
-    }
-
+    
 
     const getCategoriesAPI = async ()=>{
         const response = await getCategories()
@@ -26,8 +26,8 @@ function CategoryViewAll() {
         setCategories(genres)
     }
 
-    const getCategoriesMoviesAPI =async (idc)=>{
-        const response = await getCategoryMovies(idc)
+    const getCategoriesMoviesAPI =async (idc, page)=>{
+        const response = await getCategoryMovies(idc, page)
         setMovies(response.results);
     }
 
@@ -36,16 +36,16 @@ function CategoryViewAll() {
     }, [])
 
     useEffect(() => {
-        getCategoriesMoviesAPI(id)
-    },[id])
+        getCategoriesMoviesAPI(id, pageActive)
+    },[id, pageActive])
 
 
   return (
     <>
-    <div className="section-category container-xxxl my-5" style={{ minHeight: '100vh' }}>
-        <div className="my-5">
-          <h3 className="fw-bold">Browse by category</h3>
-          <div className="button-wrapper mb-4">
+    <div className="section-category" style={{ minHeight: '100vh' }}>
+        <div className="">
+          <h3 className="">Browse by category</h3>
+          <div className="button-wrapper">
             {categories.map((cat) => (
             <Link 
             key={cat.id} 
@@ -63,11 +63,12 @@ function CategoryViewAll() {
           </div>
         </div>
         <div className="grid-wrapper flex-row flex-wrap mb-5">
-          <div className="row row-cols-auto">
-            {movies.map((movie) => {
+          <Grid container className="row row-cols-auto">
+            {movies.map((movie, index) => {
               if (movie.poster_path !== null) {
                 return (
-                  <MovieItem
+                    <Grid item key={index} xs={2.2}>
+                    <MovieItem
                     key={movie.id}
                     id={movie.id}
                     title={movie.title}
@@ -76,14 +77,24 @@ function CategoryViewAll() {
                     rate={movie.vote_average}
                     count={movie.vote_count}
                     type="poster"
-                  />
+                    />
+                    </Grid>
                 );
               }
             })}
-          </div>
+          </Grid>
         </div>
     </div>
-    <Pagination count={10} size='large' page={pageActive} onChange={handleChange} />
+    <Pagination count={10} size='large' page={pageActive}
+    onChange={(e, value) => setPageActive(value)}
+    renderItem={(item) => (
+      <PaginationItem
+        component={Link}
+        to={`/movies/category?idc=${id}&cat=${active}&page=${pageActive? pageActive: pageActive -1}`}
+        {...item}
+      />
+    )}
+    />
     </>
   )
 }
