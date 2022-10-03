@@ -6,19 +6,21 @@ import '../../styles/category.css'
 
 function MovieItem(props) {
     const 
-    { id, backdrop, title, rate, count,  genres = [], poster, release_date } = props;
+    { id, title, rate, count,  genres = [], poster, release_date } = props;
       const rootImg = process.env.REACT_APP_PUBLIC_IMG;
       const year = new Date(release_date);
-
+    // eslint-disable-next-line
       let categories = ''
       if (genres.length > 0) {
+        // eslint-disable-next-line
         categories = genres.map((genre) => genre.name).splice(0, 2).join(' | ');
       }
     
         return (
           <div className="movie-item">
             <Link to={`/movie/${id}`} className="wrapper">
-              <a>
+             
+                {/* // eslint-disable-next-line */}
                 <div className="movie-poster ">
                   <img src={`${rootImg}/w200${poster}`} alt={`backdrop ${title}`} />
                 </div>
@@ -32,7 +34,7 @@ function MovieItem(props) {
                     </div>
                   </div>
                 </div>
-              </a>
+              
             </Link>
           </div>
         );

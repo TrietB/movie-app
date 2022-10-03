@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Route, Routes, useLocation, useRouteMatch } from 'react-router-dom'
+import React from 'react'
+import { Route, Routes} from 'react-router-dom'
 import Layout from './layout/Layout'
 import DetailMovie from './pages/DetailMovie'
 import Homepage from './pages/Homepage'

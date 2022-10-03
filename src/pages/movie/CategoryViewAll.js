@@ -1,7 +1,6 @@
-import { Button, Grid, Pagination, PaginationItem, Typography } from '@mui/material';
-import { Box } from '@mui/system';
+import {  Grid, Pagination, PaginationItem, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
-import { Link, useLocation, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getCategories, getCategoryMovies } from '../../apiData/apiService';
 import MovieItem from '../../components/MoviesCategories/MovieItem';
 import '../../styles/category.css'
@@ -13,11 +12,6 @@ function CategoryViewAll() {
     const [pageActive, setPageActive] = useState(1);
     const [id, setId] = useState(28);
     const [movies, setMovies] = useState([]);
-
-    let location = useLocation()
-    let query = new URLSearchParams(location.search)
-
-    console.log(location)
 
     
 
@@ -86,8 +80,9 @@ function CategoryViewAll() {
                     />
                     </Grid>
                 );
-              }
-            })}
+              } return null
+            }
+            )}
           </Grid>
         </div>
     </div>
