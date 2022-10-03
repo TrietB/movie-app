@@ -26,6 +26,7 @@ export default function DiscoverItem(props) {
   
     useEffect(() => { 
       getDiscoverMovieAPI(id);
+      // eslint-disable-next-line
     }, []);
   
     const rootImg = process.env.REACT_APP_PUBLIC_IMG;

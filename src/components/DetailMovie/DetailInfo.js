@@ -16,7 +16,7 @@ export default function DetailInfo(props) {
         <div className='column'>
 
             <div className="info-crew">
-            {crew.map((person) => (
+            {crew.forEach((person) => (
                 <Box key={person.credit_id} className="crew">
                     <Typography variant='h5' sx={{mt: 5}}>{person.job}</Typography>
                     <Typography sx={{mt: 2}}>{person.name}</Typography>
@@ -32,7 +32,7 @@ export default function DetailInfo(props) {
             <Box sx={{mt:3, width:'1000px'}}>
                 <Typography variant='h5'>Cast</Typography>
             <div className="cast-wrapper">
-            {cast.map((person) => {
+            {cast.forEach((person) => {
                 if (person.profile_path !== null) {
                     return (
                         <div key={person.credit_id} className="cast-box">

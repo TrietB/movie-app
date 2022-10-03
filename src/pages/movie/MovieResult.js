@@ -13,11 +13,10 @@ function MovieResult() {
         const response = await getResultMovies(query)
         getMovies(response.results)
     }
-
     useEffect(() => {
       getResultMovieAPI(param.keyword)
+      // eslint-disable-next-line
     }, [])
-    console.log(movies)
     
   return movies && (
     <Grid container
@@ -26,7 +25,7 @@ function MovieResult() {
     alignItems="center"
     justifyContent="center"
     style={{ minHeight: '100vh' }}>
-            {movies.map((movie, index) => {
+            {movies.foeEach((movie, index) => {
               if (movie.poster_path !== null) {
                 return (
                     <Grid item key={index} xs={2.2}>

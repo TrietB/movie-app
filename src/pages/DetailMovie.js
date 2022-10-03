@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import { getCredits, getDetailMovie, getSimilarMovies, getVideoTrailer } from '../apiData/apiService';
+import { getCredits, getDetailMovie, getSimilarMovies } from '../apiData/apiService';
 import DetailHeader from '../components/DetailMovie/DetailHeader'
 import DetailInfo from '../components/DetailMovie/DetailInfo';
 import DetailSimilar from '../components/DetailMovie/DetailSimilar'
@@ -32,11 +32,12 @@ function DetailMovie() {
     setSimilars(response.results)
   }
   
-console.log(similars)
+
   useEffect(()=>{
-  getDetailMovieAPI(id)
-  getCreditsAPI(id)
-  getSimilarMoviesAPI(id)
+    getDetailMovieAPI(id)
+    getCreditsAPI(id)
+    getSimilarMoviesAPI(id)
+    // eslint-disable-next-line
 },[])
 
   

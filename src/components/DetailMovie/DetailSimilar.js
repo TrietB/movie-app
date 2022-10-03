@@ -10,7 +10,7 @@ export default function DetailSimilar(props) {
     <div className="section-recom ">
       <Typography variant='h5' sx={{mb: 5, mt:3}}>Recommendation Movies</Typography>
       <Box sx={{display:'flex', flexDirection:'row', overflow: 'auto'}} className="scroll-wrapper">
-        {similarMovies.map((similar) => {
+        {similarMovies.forEach((similar) => {
           if (similar.backdrop_path !== null) {
             return (
               <MovieItem
