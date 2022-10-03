@@ -40,12 +40,11 @@ function CategoryMovies() {
           View All
         </Link>
       </Box>
-      <div className='category-btn'>
+      <Box className='category-btns'>
         {categories.map((category) => (
           <button
             key={category.id}
-            type="button"
-            className={`btn ${active === category.name ? 'btn-active' : ''}`}
+            className={`category-btn ${active === category.name ? 'btn-active' : ''}`}
             onClick={() => {
               setActive(category.name);
               return setId(category.id);
@@ -54,11 +53,16 @@ function CategoryMovies() {
             {category.name}
           </button>
         ))}
-      </div>
-      <Grid container className="category-wrapper">
+      </Box>
+      <Grid container
+        spacing={0}
+        direction="row"
+        alignItems="center"
+        justifyContent="center"
+        style={{ minHeight: '100vh' }}>
         {movies.map((movie, index) => {
           return (
-            <Grid item key={index} xs={2.2} >
+            <Grid item key={index} lg={2.2} sm={5} md={3}>
             <MovieItem
             key={movie.id}
             id={movie.id}

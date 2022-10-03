@@ -15,6 +15,8 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import { Input, TextField } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 const pages = ['Home', 'Trending', 'About'];
@@ -44,6 +46,7 @@ const Search = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    left:'-50px'
   }));
   
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -63,6 +66,7 @@ const Search = styled('div')(({ theme }) => ({
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [keyword, setKeyword] = React.useState('');
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -79,7 +83,21 @@ const Header = () => {
     setAnchorElUser(null);
   };
 
+  const onSubmit = (event) => {
+    if (!keyword) {
+      event.preventDefault();
+    } else {
+      event.preventDefault();
+    }
+  };
 
+  const onClick = (event) => {
+    if (!keyword) {
+      event.preventDefault();
+    } 
+  };
+
+  console.log(keyword)
 
   return (
     <AppBar position="static">
@@ -155,14 +173,14 @@ const Header = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0, display: 'flex', flexDirection: 'row' }}>
-          <Search>
+          <Search onSubmit={onSubmit}>
             <SearchIconWrapper>
-              <SearchIcon />
+              <SearchIcon sx={{mr:5}}/>
             </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search Movies, Series..."
-              inputProps={{ 'aria-label': 'search' }}
-            />
+           <TextField onChange={(event) => setKeyword(event.target.value)} hiddenLabel sx={{fontSize:30}} size='small'/>
+           <Link to={`/search/${keyword}`}>
+           <Button variant="contained" onClick={onClick}>Search</Button>
+           </Link>
           </Search>
 
             <Tooltip title="Open settings">

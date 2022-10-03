@@ -1,9 +1,10 @@
-import { Button, Grid, Pagination, PaginationItem } from '@mui/material';
+import { Button, Grid, Pagination, PaginationItem, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import { getCategories, getCategoryMovies } from '../../apiData/apiService';
 import MovieItem from '../../components/MoviesCategories/MovieItem';
+import '../../styles/category.css'
 
 function CategoryViewAll() {
     
@@ -44,12 +45,12 @@ function CategoryViewAll() {
     <>
     <div className="section-category" style={{ minHeight: '100vh' }}>
         <div className="">
-          <h3 className="">Browse by category</h3>
-          <div className="button-wrapper">
+        <Typography variant='h3' mt={3} mb={3}>Browse by category</Typography>
+          <div className="category-btns">
             {categories.map((cat) => (
-            <Link 
+            <Link style={{ textDecoration: 'none' }}
             key={cat.id} 
-            className={`btn ${active === cat.name ? 'btn-active' : ''}`} 
+            className={`category-btn ${active === cat.name ? 'btn-active' : ''}`} 
             onClick={() => {
                 setActive(cat.name);
                 return setId(cat.id);
@@ -62,8 +63,13 @@ function CategoryViewAll() {
             ))}
           </div>
         </div>
-        <div className="grid-wrapper flex-row flex-wrap mb-5">
-          <Grid container className="row row-cols-auto">
+        <div className="grid-wrapper">
+          <Grid container
+            spacing={0}
+            direction="row"
+            alignItems="center"
+            justifyContent="center"
+            style={{ minHeight: '100vh' }}>
             {movies.map((movie, index) => {
               if (movie.poster_path !== null) {
                 return (
@@ -85,7 +91,9 @@ function CategoryViewAll() {
           </Grid>
         </div>
     </div>
-    <Pagination count={10} size='large' page={pageActive}
+    <Pagination count={10} size='large' page={pageActive} 
+    sx={{display:'flex',alignItems:"center",
+    justifyContent:"center"}}
     onChange={(e, value) => setPageActive(value)}
     renderItem={(item) => (
       <PaginationItem

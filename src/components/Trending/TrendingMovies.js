@@ -16,6 +16,7 @@ function TrendingMovies() {
 
   useEffect(()=>{
     getTrendingMoviesAPI(active)
+    // eslint-disable-next-line
   },[active])
 
   return (
@@ -37,10 +38,15 @@ function TrendingMovies() {
           View All
         </Link>
     </Box>
-    <Grid container className="category-wrapper">
+    <Grid container
+  spacing={0}
+  direction="row"
+  alignItems="center"
+  justifyContent="center"
+  style={{ minHeight: '100vh' }}>
         {movies.map((movie, index) => {
           return (
-            <Grid item key={index} xs={2.2} >
+            <Grid item key={index} lg={2.2} sm={5} md={3} >
             <MovieItem
             key={movie.id}
             id={movie.id}

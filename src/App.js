@@ -4,6 +4,7 @@ import Layout from './layout/Layout'
 import DetailMovie from './pages/DetailMovie'
 import Homepage from './pages/Homepage'
 import CategoryViewAll from './pages/movie/CategoryViewAll'
+import MovieResult from './pages/movie/MovieResult'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Route index element={<Homepage/>}/>
         <Route path='/movie/:id' element={<DetailMovie/>}/>
         <Route path='/movies/category' element={<CategoryViewAll/>}/>
+        <Route path='/search/:keyword' element={<MovieResult/>}/>
       </Route>
     </Routes>
     </>
