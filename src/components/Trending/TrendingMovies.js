@@ -1,6 +1,5 @@
 import { Box, Grid, Typography } from '@mui/material'
 import React, { useCallback, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { getTrendingMovies } from '../../apiData/apiService'
 import '../../styles/trending.css'
 import MovieItem from '../MoviesCategories/MovieItem'
@@ -34,9 +33,6 @@ function TrendingMovies() {
           onClick={()=> setActive('day')}>Today</button>
         </div>
         </Box>
-        <Link to={`/movies/trending?q=${active}&page=1`}>
-          View All
-        </Link>
     </Box>
     <Grid container
   spacing={0}
