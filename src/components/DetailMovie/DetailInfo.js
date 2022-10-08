@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Container, Grid, Typography } from '@mui/material';
 import CurrencyFormat from 'react-currency-format';
 
 
@@ -12,7 +12,7 @@ export default function DetailInfo(props) {
   const cast = credits.cast.sort();
 
   return (
-    <div className="section-info">
+    <Container maxWidth="md" className="section-info">
         <div className='column'>
 
             <div className="info-crew">
@@ -29,9 +29,9 @@ export default function DetailInfo(props) {
                 <Typography variant='h5'>Overview</Typography>
                 <Typography paragraph={true} sx={{mt: 3}}>{movie.overview}</Typography>
             </Box>
-            <Box sx={{mt:3, width:'1000px'}}>
+            <Box sx={{mt:3}}>
                 <Typography variant='h5'>Cast</Typography>
-            <div className="cast-wrapper">
+            <Box className="cast-wrapper">
             {cast.map((person) => {
                 if (person.profile_path !== null) {
                     return (
@@ -42,40 +42,40 @@ export default function DetailInfo(props) {
                     );
                 } return null
             })}
-            </div>
+            </Box>
             </Box>
         </div>
         </div>
-        <div className="info-movie">
-        <div>
+        <Grid container spacing={3} sx={{mt: 5}} className="info-movie">
+        <Grid item>
             <Typography variant='h6'>Status</Typography>
             <p>{movie.status}</p>
-        </div>
-        <div>
+        </Grid>
+        <Grid item>
             <Typography variant='h6'>Released date</Typography>
             <p>{year.toLocaleDateString('en', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
-        </div>
-        <div>
+        </Grid>
+        <Grid item>
             <Typography variant='h6'>Duration</Typography>
             <p>{`${movie.runtime} Min`}</p>
-        </div>
-        <div>
+        </Grid>
+        <Grid item>
             <Typography variant='h6'>Language</Typography>
             <p>{movie.original_language}</p>
-        </div>
-        <div>
+        </Grid>
+        <Grid item>
             <Typography variant='h6'>Popularity</Typography>
             <p>{movie.popularity}</p>
-        </div>
-        <div>
+        </Grid>
+        <Grid item>
             <Typography variant='h6'>Budget</Typography>
             <p><CurrencyFormat value={movie.budget} displayType="text" prefix="$" thousandSeparator /></p>
-        </div>
-        <div>
+        </Grid>
+        <Grid item>
             <Typography variant='h6'>Revenue</Typography>
             <p><CurrencyFormat value={movie.revenue} displayType="text" prefix="$" thousandSeparator /></p>
-        </div>
-      </div>
-    </div>
+        </Grid>
+      </Grid>
+    </Container>
   );
 }

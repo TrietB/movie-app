@@ -82,7 +82,6 @@ const Header = () => {
     } 
   };
 
-  console.log(keyword)
 
   return (
     <AppBar position="static">
@@ -137,24 +136,33 @@ const Header = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+            
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Typography sx={{textDecoration:'none', color:'black'}} component='a' href='/' textAlign="center">Home</Typography>
                 </MenuItem>
-              ))}
+                <MenuItem onClick={handleCloseNavMenu}>
+                <Typography sx={{textDecoration:'none', color:'black'}} component='a' href='/movies/category' textAlign="center">Category</Typography>
+                </MenuItem>
+             
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+         
               <Button
-                key={page}
                 onClick={handleCloseNavMenu}
+                href="/"
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                Home
               </Button>
-            ))}
+              <Button
+                onClick={handleCloseNavMenu}
+                href="/movies/category/"
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Category
+              </Button>      
           </Box>
 
           <Box sx={{ flexGrow: 0, display: 'flex', flexDirection: 'row' }}>
@@ -162,9 +170,10 @@ const Header = () => {
             <SearchIconWrapper>
               <SearchIcon sx={{mr:5}}/>
             </SearchIconWrapper>
-           <TextField onChange={(event) => setKeyword(event.target.value)} hiddenLabel sx={{fontSize:30}} size='small'/>
-           <Link to={`/search/${keyword}`}>
-           <Button variant="contained" onClick={onClick}>Search</Button>
+           <TextField onChange={(event) => setKeyword(event.target.value)} hiddenLabel sx={{fontSize:30,}} size='small'>
+           </TextField>
+           <Link to={`/search/${keyword}`} className="text-deco">
+           <Button variant="text"  sx={{textDecoration:'none', color:'white'}} onClick={onClick}>Search</Button>
            </Link>
           </Search>
 

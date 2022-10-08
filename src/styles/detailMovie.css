@@ -61,12 +61,10 @@
   margin: 10px 0 10px 0;
 }
 .info-movie{
-  margin-top: 40px;
-  margin-left: 40px;
 }
 
 .cast-wrapper{
-  width: 100%;
+  /* max-width: 200px; */
   display: flex;
   flex-direction: row;
   overflow-x: auto ;

@@ -31,7 +31,7 @@
 }
 
 .button-wrapper {
-    border: 1px solid rgba(5, 9, 241, 0.7);
+    /* border: 1px solid rgba(5, 9, 241, 0.7); */
     border-radius: 40px;
     margin-left: 15px;
   }

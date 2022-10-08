@@ -1,4 +1,5 @@
-import { Grid } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
+import { Container } from '@mui/system'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getResultMovies } from '../../apiData/apiService'
@@ -19,6 +20,8 @@ function MovieResult() {
     }, [])
     
   return movies && (
+    <Container sx={{mt:10}}>
+      <Typography variant='h3' sx={{mb: 5}}>Results for {param.keyword}:</Typography>
     <Grid container
     spacing={0}
     direction="row"
@@ -28,7 +31,7 @@ function MovieResult() {
             {movies.map((movie, index) => {
               if (movie.poster_path !== null) {
                 return (
-                    <Grid item key={index} xs={2.2}>
+                  <Grid item key={index} lg={2.2} sm={5} md={3}>
                     <MovieItem
                     key={movie.id}
                     id={movie.id}
@@ -44,6 +47,7 @@ function MovieResult() {
               } return null
             })}
           </Grid>
+    </Container>
   )
 }
 

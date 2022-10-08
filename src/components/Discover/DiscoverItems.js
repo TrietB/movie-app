@@ -35,7 +35,7 @@ export default function DiscoverItem(props) {
   
     return data.id && (
       <div className="movie-item">
-        <Link className='wrapper' to={`/movie/${id}`}>
+        <Link className='discover-wrapper' to={`/movie/${id}`}>
             <div className="movie-poster">
               <img src={`${rootImg}/w400/${data.backdrop_path}`} alt={`backdrop ${data.title}`} />
             </div>

@@ -67,7 +67,7 @@ function CategoryViewAll() {
             {movies.map((movie, index) => {
               if (movie.poster_path !== null) {
                 return (
-                    <Grid item key={index} xs={2.2}>
+                    <Grid item key={index} lg={2.2} sm={5} md={3}>
                     <MovieItem
                     key={movie.id}
                     id={movie.id}
@@ -86,7 +86,7 @@ function CategoryViewAll() {
           </Grid>
         </div>
     </div>
-    <Pagination count={10} size='large' page={pageActive} 
+    <Pagination count={100} size='large' page={pageActive} 
     sx={{display:'flex',alignItems:"center",
     justifyContent:"center"}}
     onChange={(e, value) => setPageActive(value)}
