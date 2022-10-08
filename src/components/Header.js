@@ -18,7 +18,7 @@ import { TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 
-const pages = ['Home', 'Trending', 'About'];
+
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Search = styled('div')(({ theme }) => ({
