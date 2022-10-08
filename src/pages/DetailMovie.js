@@ -14,7 +14,7 @@ function DetailMovie() {
   const param = useParams()
   const {id} = param
   
-  console.log(movie, credits, similars)
+
   const rootImg = process.env.REACT_APP_PUBLIC_IMG
 
   const getDetailMovieAPI =  async (id) => {
@@ -37,8 +37,9 @@ function DetailMovie() {
     getDetailMovieAPI(id)
     getCreditsAPI(id)
     getSimilarMoviesAPI(id)
+    console.log(id)
     // eslint-disable-next-line
-},[])
+},[id])
 
   
   return movie && credits&& similars && (

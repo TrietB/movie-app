@@ -86,7 +86,7 @@ function CategoryViewAll() {
           </Grid>
         </div>
     </div>
-    <Pagination count={100} size='large' page={pageActive} 
+    <Pagination count={200} size='large' page={pageActive} 
     sx={{display:'flex',alignItems:"center",
     justifyContent:"center"}}
     onChange={(e, value) => setPageActive(value)}

@@ -17,7 +17,7 @@ function MovieResult() {
     useEffect(() => {
       getResultMovieAPI(param.keyword)
       // eslint-disable-next-line
-    }, [])
+    }, [param.keyword])
     
   return movies && (
     <Container sx={{mt:10}}>

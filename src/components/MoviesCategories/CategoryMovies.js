@@ -36,7 +36,7 @@ function CategoryMovies() {
     <div className="section-category">
       <Box sx={{display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center', width:'100%'}}>
         <Typography variant='h3' mt={3} mb={3}>Browse by category</Typography>
-        <Link to={`/movies/category?idc=${id}&cat=${active}&page=1`}>
+        <Link style={{textDecoration:'none'}} to={`/movies/category?idc=${id}&cat=${active}&page=1`}>
           View All
         </Link>
       </Box>
